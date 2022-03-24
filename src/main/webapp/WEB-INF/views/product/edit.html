@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/product/layout::head"></head>
+<body>
+<h1>Edit product</h1>
+<a th:href="@{/products/list}">Back to product list</a>
+<form th:action="@{/products/edit/__${product.id}__}" method="post" enctype="multipart/form-data" th:object="${product}">
+    <input type="text" placeholder="Name" th:field="*{name}">
+    <input type="text" placeholder="Price" th:field="*{price}">
+    <input type="text" placeholder="Description" th:field="*{description}">
+    <input type="file" th:field="*{image}">
+    <img th:src="@{/image/__${product.image}__}" alt="" height="100">
+    <button>Edit</button>
+</form>
+
+<footer th:replace="/product/layout::footer"></footer>
+</body>
+</html>
